@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euo pipefail
+
+: "${SSH_CONFIG:=${PROJHOME}/etc/ssh/config}"
+
+ssh_config=""
+test -n "${SSH_CONFIG:-''}" -a -r "${SSH_CONFIG}" && ssh_config="-F ${SSH_CONFIG}"
+
+exec /usr/bin/ssh ${ssh_config} "$@"
