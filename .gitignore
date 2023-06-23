@@ -1,0 +1,5 @@
+# Vagrant
+.vagrant
+cache/apt-archives/*.deb
+cache/apt-archives/lock
+cache/apt-archives/partial/*

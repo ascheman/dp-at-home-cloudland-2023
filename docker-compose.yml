@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ubuntu:
+    build: .
+    image: ascheman/devops-productivity-demo-ubuntu:latest
+    container_name: devops-productivity-demo-ubuntu
+    hostname: ubuntu
+    command: /bin/bash
+    tty: true
+    volumes:
+      - ./cache/apt-archives:/var/cache/apt/archives
+      - .:/data
