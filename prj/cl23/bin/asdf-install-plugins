@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+add() {
+  asdf plugin add "${1}" || true
+}
+
+toolsfile="${PROJHOME}/.tool-versions"
+if test -r "${toolsfile}"; then
+  echo "Loading asdf plugins for '${toolsfile}'"
+  awk '{print $1}' "${toolsfile}" | while read -r tool ; do
+    add "${tool}"
+  done
+fi
